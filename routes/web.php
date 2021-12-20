@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Post controllers
-// Route::get('/', [App\Http\Controllers\])
+Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('home');
 
 Auth::routes();
 

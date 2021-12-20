@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('home');
 
+/** Guest Rotues */
+Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/{slug}', [App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
+
+
 Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');

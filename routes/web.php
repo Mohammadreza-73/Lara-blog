@@ -20,6 +20,12 @@ Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('ho
 Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/{slug}', [App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
 
+/** Admin Routes */
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+
+    Route::resource('posts', App\Http\Controllers\Admin\PostController::class);
+
+});
 
 Auth::routes();
 

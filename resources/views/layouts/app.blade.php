@@ -58,6 +58,12 @@
                                 </a>
                                 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a href="{{ route('dashboard') }}" class="dropdown-item text-primary">{{ __('Dashboard') }}</a>
+                                    <a href="#" class="dropdown-item">{{ __('Posts') }}</a>
+                                    <a href="#" class="dropdown-item">{{ __('Categories') }}</a>
+                                    <a href="#" class="dropdown-item">{{ __('Tags') }}</a>
+
+                                    <hr>
 
                                     <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

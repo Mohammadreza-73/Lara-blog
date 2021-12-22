@@ -24,6 +24,8 @@ Route::get('/posts/{slug}', [App\Http\Controllers\PostController::class, 'show']
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::resource('posts', App\Http\Controllers\Admin\PostController::class);
+    Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class);
+    Route::resource('tags', App\Http\Controllers\Admin\TagController::class);
 
 });
 

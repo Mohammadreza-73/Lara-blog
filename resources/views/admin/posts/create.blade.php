@@ -58,7 +58,23 @@
                             <span class="help-block text-muted">{{ __('Separated by comma') }}</span>
                         </div>
 
-                        <!-- TODO: Add category options -->
+                        <div class="form-group my-3">
+                            <label class="required" for="category">{{ __('Category') }}</label>
+                            <select class="form-control {{ $errors->has('category') ? 'is-invalid' : '' }}"
+                                name="category" id="category" required>
+                                <option value="0">--- {{ __('SELECT CATEGORY') }} ---</option>
+                                @foreach($categories as $category)
+                                <option value="{{ $category->id }}" @if ($category->id == old('category')) selected
+                                    @endif>{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('category'))
+                            <div class="invalid-feedback">
+                                {{ $errors->first('category') }}
+                            </div>
+                            @endif
+                            <span class="help-block"></span>
+                        </div>
 
                         <div class="form-group my-3">
                             <label for="excerpt">{{ __('Excerpt') }}</label>

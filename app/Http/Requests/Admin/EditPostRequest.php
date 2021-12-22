@@ -24,11 +24,13 @@ class EditPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'   => 'required|string|max:255',
-            'slug'    => 'required|string|max:255',
-            'image'   => 'required|mimes:png,jpeg,jpg|max:1024',
-            'excerpt' => 'required|string|max:1000',
-            'body'    => 'required|string',
+            'title'    => 'required|string|max:255',
+            'slug'     => 'required|string|max:255',
+            'image'    => 'required|mimes:png,jpeg,jpg|max:1024',
+            'category' => 'required|integer|exists:categories,id',
+            'tags'     => 'required',
+            'excerpt'  => 'required|string|max:1000',
+            'body'     => 'required|string',
         ];
     }
 }

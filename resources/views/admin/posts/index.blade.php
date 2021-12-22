@@ -15,8 +15,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>{{ __('Post Title') }}</th>
-                                <th>{{ __('Categories') }}</th>
-                                <th>{{ __('Tags') }}</th>
+                                <th>{{ __('Category') }}</th>
                                 <th>{{ __('Actions') }}</th>
                             </tr>
                         </thead>
@@ -25,19 +24,18 @@
                             <tr>
                                 <td>{{ $post->id }}</td>
                                 <td>{{ $post->title }}</td>
-                                <td>{{ $post->category }}</td>
-                                <td>{{ $post->tag }}</td>
+                                <td>{{ $post->category->name }}</td>
                                 <td>
-                                    <a class="btn btn-warning" href="{{ route('admin.posts.update', $post) }}">
+                                    <a class="btn btn-warning" href="{{ route('admin.posts.edit', $post) }}">
                                         {{ __('Edit') }}
                                     </a>
 
-                                    <form action="{{ route('admin.posts.destroy') }}" method="POST"
+                                    <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST"
                                             onsubmit="return confirm('Are You Sure?')" style="display:inline-block">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger" type="submit">
-                                            {{ __('Submit') }}
+                                            {{ __('Delete') }}
                                         </button>
                                     </form>
                                 </td>

@@ -15,7 +15,7 @@
                         <div class="form-group my-3">
                             <label class="required" for="name">{{ __('Name') }}</label>
                             <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text"
-                                name="name" id="name" value="{{ old('name', $category->name) }}" required>
+                                name="name" id="name" value="{{ old('name', $category->name) }}" autofocus required>
                             @if($errors->has('name'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('name') }}

@@ -16,6 +16,7 @@
                                 <th>#</th>
                                 <th>{{ __('Post Title') }}</th>
                                 <th>{{ __('Category') }}</th>
+                                <th>{{ __('Created_at') }}</th>
                                 <th>{{ __('Actions') }}</th>
                             </tr>
                         </thead>
@@ -23,8 +24,11 @@
                             @foreach ($posts as $post)
                             <tr>
                                 <td>{{ $post->id }}</td>
-                                <td>{{ $post->title }}</td>
+                                <td>
+                                    <a class="text-dark" href="{{ route('posts.show', $post) }}">{{ $post->title }}</a>
+                                </td>
                                 <td>{{ $post->category->name }}</td>
+                                <td>{{ $post->created_at->format('d F Y H:i') }}</td>
                                 <td>
                                     <a class="btn btn-warning" href="{{ route('admin.posts.edit', $post) }}">
                                         {{ __('Edit') }}

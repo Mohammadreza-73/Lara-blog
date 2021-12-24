@@ -36,6 +36,10 @@
                             <a href="{{ route('posts.show', $post) }}" class="btn btn-outline-primary">{{ __('Read More »') }}</a>
                         </div>
                         @endforeach
+
+                        <div class="justify-content-center">
+                            {{ $posts->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
